@@ -15,6 +15,8 @@
 
 ## 1.1 용어 대응 (이론 ↔ 구현)
 
+![image](./이미지/스키마예시.png)
+
 - Relation(릴레이션) ↔ Table(테이블)
 - Tuple(튜플) ↔ Row/Record(행)
 - Attribute(애트리뷰트) ↔ Column(열)
