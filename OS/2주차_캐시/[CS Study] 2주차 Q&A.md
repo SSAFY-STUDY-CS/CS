@@ -42,7 +42,8 @@
 
 C
 
-`// Good: 행 우선 순회 (Row-Major) - 공간 지역성 높음
+```C
+Good: 행 우선 순회 (Row-Major) - 공간 지역성 높음
 for (int i = 0; i < N; i++) {
     for (int j = 0; j < M; j++) {
         sum += array[i][j]; // 메모리 배치 순서대로 접근
@@ -54,18 +55,21 @@ for (int j = 0; j < M; j++) {
     for (int i = 0; i < N; i++) {
         sum += array[i][j]; // 한 번 읽을 때마다 멀리 떨어진 주소로 점프
     }
-}`
+}
+```
 
 1. **시간 지역성 활용:** 동일 데이터 블록을 집중적으로 재사용하는 루프 타일링(Loop Tiling/Blocking) 기법을 적용합니다.
 2. **데이터 패딩(Padding):** 멀티코어 환경에서 거짓 공유(False Sharing)를 방지하기 위해 독립적인 변수들을 서로 다른 캐시 라인으로 격리합니다.
 
 C
 
-`struct SharedData {
+```
+struct SharedData {
     int volatile counter1;
     long long padding[8]; // 64바이트 캐시 라인 경계를 맞추기 위한 패딩
     int volatile counter2;
-};`
+};
+```
 
 ### 3.2. 관련 심화 주제
 
