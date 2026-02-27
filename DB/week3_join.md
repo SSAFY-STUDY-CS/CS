@@ -17,9 +17,9 @@
 
 # JOIN 종류
 
-![image.png](./이미지/image.png)
+![image.png](./images/image.png)
 
-![image.png](./이미지/image%20(1).png)
+![image.png](./images/image%20(1).png)
 
 ### 1. INNER JOIN
 
@@ -127,7 +127,7 @@ CROSS JOIN dates d;
 
 다른 조인 참고
 
-![image.png](./이미지/image%20(2).png)
+![image.png](./images/image%20(2).png)
 
 ---
 
@@ -161,7 +161,7 @@ BUT! `A × B` 의 비용이 천문학적이기에
 >         를 결정한다.
 >         
 
-![image.png](./이미지/image%20(9).png)
+![image.png](./images/image%20(9).png)
 
 1. 조건을 가능한 빨리 적용하고(**`Predicate pushdown`**)
     
@@ -181,13 +181,13 @@ BUT! `A × B` 의 비용이 천문학적이기에
         - 한쪽을 읽고, 다른쪽에서 매칭 찾기(인덱스 있으면 유리)
         - `이중 for문`이라 생각하면 편함
         
-		![image.png](./이미지/image%20(3).png)
+		![image.png](./images/image%20(3).png)
         
     - `Hash Join`
         - MySQL도 해시 조인이 있다(가능 조건/언제 선택될 수 있는지 키워드 수준)
         - 8.0.20부터는 인덱스가 없을 경우 hash join이 기본이 됨.
         
-        ![image.png](./이미지/image%20(4).png)
+        ![image.png](./images/image%20(4).png)
         
 
 ---
@@ -211,15 +211,15 @@ WHERE created_at >= '2026-02-26' AND created_at < '2026-02-27'
 
 ### **Multi Range Read (MRR)**
 
-![image.png](./이미지/image%20(5).png)
+![image.png](./images/image%20(5).png)
 
-![image.png](./이미지/image%20(6).png)
+![image.png](./images/image%20(6).png)
 
 ### **Batched Key Access (BKA)**
 
-![image.png](./이미지/image%20(7).png)
+![image.png](./images/image%20(7).png)
 
-![image.png](./이미지/image%20(8).png)
+![image.png](./images/image%20(8).png)
 
 ---
 
