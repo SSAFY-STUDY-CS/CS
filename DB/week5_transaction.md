@@ -313,3 +313,34 @@ public class OrderService {
     } // ! -> 커밋
 }
 ```
+
+```java
+public void transferMoney(DataSource dataSource) throws SQLException {
+    Connection con = dataSource.getConnection();
+
+    try {
+        con.setAutoCommit(false); // 트랜잭션 시작
+
+        PreparedStatement ps1 = con.prepareStatement(
+                "UPDATE account SET balance = balance - ? WHERE id = ?"
+        );
+        ps1.setInt(1, 10000);
+        ps1.setString(2, "A");
+        ps1.executeUpdate();
+
+        PreparedStatement ps2 = con.prepareStatement(
+                "UPDATE account SET balance = balance + ? WHERE id = ?"
+        );
+        ps2.setInt(1, 10000);
+        ps2.setString(2, "B");
+        ps2.executeUpdate();
+
+        con.commit(); // 성공 시 커밋
+    } catch (Exception e) {
+        con.rollback(); // 실패 시 롤백
+        throw e;
+    } finally {
+        con.close();
+    }
+}
+```
