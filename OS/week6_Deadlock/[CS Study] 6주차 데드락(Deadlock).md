@@ -8,7 +8,7 @@
     - 시스템 내에 데드락 프로세스가 존재하면 시스템은 **deadlock 상태**
 - **질문**: Deadlock vs Starvation 비교
     
-    ![image.png](image.png)
+    ![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image.png)
     
 - **자원의 분류(일반)**: Hardware resources vs Software resources
 - **자원의 분류(다른 기준)**
@@ -19,9 +19,9 @@
 
 ## 2. 데드락 모델
 
-![image.png](image%201.png)
+![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image%201.png)
 
-![image.png](image%202.png)
+![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image%202.png)
 
 - Deadlock 발생 필요 조건 (모두 성립 시)
     - Exclusive use of resources
@@ -55,15 +55,15 @@
 그 순서대로라면 모든 프로세스가 필요한 자원을 얻고 종료할 수 있으면 **Safe state**
 - Safe state
 
-![image.png](image%203.png)
+![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image%203.png)
 
 - No safe state
 
-![image.png](image%204.png)
+![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image%204.png)
 
 ### **4.2. Habermann’s algorithm**
 
-![image.png](image%205.png)
+![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image%205.png)
 
 - 결론
     - High overhead
@@ -76,7 +76,7 @@
 - Resource Allocation Graph (RAG) 사용
     - Directed, bipartite Graph
     
-    ![image.png](image%206.png)
+    ![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image%206.png)
     
     - **정점(Vertex) 종류**
         - **프로세스 노드** $P_i$ : 보통 **원(○)** 으로 표시
@@ -85,7 +85,7 @@
         - **요청 간선(Request edge)**: $P_i \rightarrow R_j$
         - **할당 간선(Assignment edge)**: $R_j \rightarrow P_i$
         
-        ![image.png](image%207.png)
+        ![image.png](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/image%207.png)
         
 
 ### **5.1. Graph reduction**
@@ -105,3 +105,5 @@
 ### **6.2. Resource preemption**
 
 ### 6.3. Checkpoint-restart method
+
+[[6.질문]](%5BCS%20Study%5D%206%EC%A3%BC%EC%B0%A8%20%EB%8D%B0%EB%93%9C%EB%9D%BD(Deadlock)/%5B6%20%EC%A7%88%EB%AC%B8%5D%2032855b2c0f6a80dfad74c0e310d1f0cb.md)
