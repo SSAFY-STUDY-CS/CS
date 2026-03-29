@@ -9,7 +9,7 @@
 - **공유 데이터(Shared data):** 프로세스가 공유하는 데이터, Critical data
 - **임계 영역 (Critical Section):** 공유 데이터에 접근하는 코드 영역(code segment)
 
-![image.png](image.png)
+![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image.png)
 
 ---
 
@@ -18,7 +18,7 @@
 1. enterCS primitive : 들어가기 전 검사
 2. exitCS primitive : 나오는 과정
 
-![image.png](image%201.png)
+![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image%201.png)
 
 1. 해결 조건 : 임계 영역 문제를 해결하기 위한 알고리즘은 반드시 아래 3가지를 만족해야 합니다.
     - **상호 배제 (Mutual Exclusion):** CS에 한 프로세스가 진입하면 다른 프로세스는 차단.
@@ -31,21 +31,21 @@
             - 반드시 상대방이 한 번 들어갔다 나와서 내 차례로 바꿔줘야만 내가 들어갈 수 있음.
             - 상대방이 임계 영역에 들어갈 생각이 없더라도 내 차례가 오지 않으면 영원히 진입 불가.
     
-    ![image.png](image%202.png)
+    ![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image%202.png)
     
     - **v2: Flag 변수 활용 - 직전 확인 (깃발 들기)**
         - **원리:** 각자 `flag`를 두어 진입 의사를 표시함. 상대가 깃발을 내리고 있으면 내가 깃발을 들고 진입.
         - **한계:** **상호 배제(Mutual Exclusion) 조건 위배**.
             - 두 프로세스가 동시에 상대의 깃발이 내려간 것을 확인하고 동시에 진입할 가능성이 있음.
     
-    ![image.png](image%203.png)
+    ![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image%203.png)
     
     - **v3: Flag 변수 활용 - 미리 확인 (양보의 함정)**
         - **원리:** 일단 내 깃발을 먼저 들고 나서 상대방의 깃발을 확인함. 상대가 들고 있다면 내릴 때까지 대기.
         - **한계:** **진행(Progress) 및 한정 대기(Bounded Waiting) 위배**.
             - 두 프로세스가 동시에 각자의 깃발을 들고 서로 양보하며 무한히 기다리는 상황 발생
         
-        ![image.png](image%204.png)
+        ![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image%204.png)
         
 
 ---
@@ -58,7 +58,7 @@
     - **원리:** `flag`와 `turn` 변수를 활용하여 소프트웨어적으로 진입 순서를 제어.
     - Two process ME를 보장하는 최초의 알고리즘
 
-![스크린샷 2026-03-10 104108.png](%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2026-03-10_104108.png)
+![스크린샷 2026-03-10 104108.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2026-03-10_104108.png)
 
 - **Dijkstra algorithm**
     - idle : 프로세스가 임계 지역 진입을 시도하고 있지 않을 때
@@ -66,12 +66,12 @@
     - in-CS : 프로세스의 임계 지역 진입 시도 2단계 및 임계 지역 내에 있을 때
     - 최초로 프로세스 n개의 상호배제 문제를 소프트웨어적으로 해결
     
-    ![image.png](image%205.png)
+    ![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image%205.png)
     
 - **효과/장점:** 별도의 하드웨어 지원 없이 구현 가능.
 - **단점:** 속도가 느리고 구현이 복잡하며, 기다리는 동안 CPU를 소모하는 **Busy Waiting**이 발생함.
 
-[[보충5.1] Software Solution 동작 과정](%5B%EB%B3%B4%EC%B6%A95%201%5D%20Software%20Solution%20%EB%8F%99%EC%9E%91%20%EA%B3%BC%EC%A0%95%2031f55b2c0f6a8080be43e32b77815d07.md)
+[[5.보충1] Software Solution 동작 과정](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/%5B5%20%EB%B3%B4%EC%B6%A91%5D%20Software%20Solution%20%EB%8F%99%EC%9E%91%20%EA%B3%BC%EC%A0%95%2031f55b2c0f6a8080be43e32b77815d07.md)
 
 ### 3.2 HardWare solution
 
@@ -86,7 +86,7 @@
     - **원리:** 초기화, `P(), V()` 연산으로만 접근 가능 (P :  problem, 검사 / V : Verhogen, 증가)
     - **단점:** Busy waiting
 
-![image.png](image%206.png)
+![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image%206.png)
 
 - **세마포어 (Semaphore, Dijkstra):**
     - **원리:** 정수형 변수 `S`와 `P()`/`V()` 연산을 통해 자원 관리. 자원이 없으면 **Ready Queue**에서 대기.
@@ -99,7 +99,7 @@
     - **장점:** **No Busy Waiting** (대기 중인 프로세스를 Block 상태로 전환).
     - **단점:** semaphore queue에 대한 wake-up 순서는 비결정적 (Starvation problem)
     
-    [[보충5.2] Semaphore 동작 과정](%5B%EB%B3%B4%EC%B6%A95%202%5D%20Semaphore%20%EB%8F%99%EC%9E%91%20%EA%B3%BC%EC%A0%95%2031f55b2c0f6a806a8639f07bcd42c634.md)
+    [[5.보충2] Semaphore 동작 과정](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/%5B5%20%EB%B3%B4%EC%B6%A92%5D%20Semaphore%20%EB%8F%99%EC%9E%91%20%EA%B3%BC%EC%A0%95%2031f55b2c0f6a806a8639f07bcd42c634.md)
     
 - **Eventcount/Sequencer**
     - **원리:** 번호표(Sequencer)와 알림판(Eventcount)을 이용.
@@ -114,14 +114,13 @@
 - **종류:** Monitor
 - **원리:** 공유 데이터와 Critical section의 집합.
 
-![image.png](image%207.png)
+![image.png](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/image%207.png)
 
 - **장점: 가독성 및 안전성:** 프로그래머가 직접 락을 제어할 필요가 없어 코드가 간결하고 실수가 적음.
 - **단점:** 지원하는 언어(Java 등) 환경에서만 사용 가능.
     
-    [[보충5.3] Monitor 동작 과정](%5B%EB%B3%B4%EC%B6%A95%203%5D%20Monitor%20%EB%8F%99%EC%9E%91%20%EA%B3%BC%EC%A0%95%2031f55b2c0f6a803582afd4a2e0c3abbf.md)
-
----
+    [[5.보충3] Monitor 동작 과정](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/%5B5%20%EB%B3%B4%EC%B6%A93%5D%20Monitor%20%EB%8F%99%EC%9E%91%20%EA%B3%BC%EC%A0%95%2031f55b2c0f6a803582afd4a2e0c3abbf.md)
+    
 
 ### Q1. Race Condition(경쟁 상태)이란 무엇이며, 이를 방지하기 위한 3가지 필수 조건을 설명하세요.
 
@@ -131,8 +130,8 @@
 
 ---
 
-### Q3. "임계 영역(Critical Section)의 길이가 아주 짧은 경우와 매우 긴 경우, 각각 어떤 동기화 방식이 유리할까요?"
+### Q3. 세마포어가 있는데 왜 모니터(Monitor)를 사용하나요?
 
 ---
 
-### Q4. "세마포어의 V() 연산(Signal)과 모니터의 signal() 연산은 '자고 있는 프로세스를 깨운다'는 점에서 비슷해 보입니다. 만약 깨울 프로세스가 아무도 없는 상태에서 두 연산이 실행된다면, 이후 동작에서 어떤 차이가 발생할까요?"
+[[5.보충4]](%5BCS%20Study%5D%205%EC%A3%BC%EC%B0%A8/%5B5%20%EB%B3%B4%EC%B6%A94%5D%2032855b2c0f6a80c68dfadb11f16b0a18.md)
